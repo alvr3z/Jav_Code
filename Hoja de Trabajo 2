@@ -1,0 +1,121 @@
+package main;
+
+import javax.swing.JOptionPane;
+/*
+* HOJA DE TRABAJO 2
+* Javier Abraham Alvarez Perez 201807374
+* Adrian Josue Fernandez Avila
+*
+*
+*/
+public class Main {
+
+	public static void main(String[] args) {
+		//one();
+		//two();
+		//three();
+		//four();
+	}
+  
+// CODIGO EN COMPU DE ADRIAN FERNANDEZ
+/*	public static void one() {
+		String number = JOptionPane.showInputDialog("INSERT A NUMBER");
+		String[] split = number.split("\\.");
+		double resultDigits = split[0].length() + split[1].length();
+		double resultDecimal = split[1].length();
+    
+		JOptionPane.showMessageDialog(null, "DIGITS: " + resultDigits + "\n DECIMALS : " + resultDecimal);
+
+	}*/
+
+	public static void two() {
+
+		int monthdays[] = { 0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+
+		int monthsyear[] = { 0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334, 365 };
+
+		int day = Integer.parseInt(JOptionPane.showInputDialog("INSERT DAY"));
+		int month = Integer.parseInt(JOptionPane.showInputDialog("INSERT MONTH"));
+		int year = Integer.parseInt(JOptionPane.showInputDialog("INSERT YEAR"));
+
+		System.out.println(day);
+		System.out.println(month);
+		System.out.println(year);
+
+		int result = (monthsyear[month] - (monthdays[month] - day));
+		// 365-(31-1)
+		JOptionPane.showMessageDialog(null, "DAYS OF THE YEAR: " + result);
+	}
+
+	public static void three() {
+		double pound = 2.2046;
+		double inch = 2.54;
+
+		double length = Double.parseDouble(JOptionPane.showInputDialog("INSERT THE LENGHT (in)"));
+		double lengthcm = length * inch;
+
+		if (length >= 0) {
+			double mass = Double.parseDouble(JOptionPane.showInputDialog("INSERT THE MASS (kg)"));
+			double masscm = mass * pound;
+			if (mass >= 0) {
+				JOptionPane.showMessageDialog(null,
+						"THE LENGTH IN CENTIMETERS IS: " + lengthcm + "\nTHE MASS IN POUNDS IS: " + masscm);
+			} else {
+				mass = Double.parseDouble(JOptionPane.showInputDialog("INSERT THE MASS"));
+				;
+			}
+		} else {
+			length = Double.parseDouble(JOptionPane.showInputDialog("INSERT THE LENGHT"));
+		}
+	}
+
+	public static void four() {
+		int ages[] = new int[6];// DECLARAMOS EL ARRAY
+		double heights[] = new double[6];
+
+		for (int i = 0; i < 6; i++) {
+			ages[i] = Integer.parseInt(JOptionPane.showInputDialog("INSERT AGE" + (i + 1)));
+		}
+		for (int b = 0; b < 6; b++) {
+			heights[b] = Double.parseDouble(JOptionPane.showInputDialog("INSERT HEIGHT" + (b + 1)));
+		}
+
+		double x = 0;
+		for (int c = 0; c < ages.length; c++) {
+			double aux = ages[c];
+			x = x + aux;
+
+		}
+		double y = 0;
+		for (int d = 0; d < heights.length; d++) {
+			double aux = heights[d];
+			y = y + aux;
+
+		}
+		
+		
+		int counter1=0;
+		int counter2=0;
+		
+		for (int e = 0; e < ages.length; e++) {
+			if(ages[e]>18) {
+				counter1++;
+			}
+		}
+
+		for (int f = 0; f < heights.length; f++) {
+			if(heights[f]>1.7) {
+				counter2++;
+			}
+		}
+
+		double averheight = y / 6;
+		double average = x / 6;
+
+		JOptionPane.showMessageDialog(null, "AVERAGE AGE STUDENTS: " + average);
+		JOptionPane.showMessageDialog(null, "AVERGAGE HEIGHT STUDENTS: " + averheight);
+		JOptionPane.showMessageDialog(null, "STUDENTS WITH AGE GRATHER THAN 18 YEARSOLD " + counter1);
+		JOptionPane.showMessageDialog(null, "STUDENTS WITH AGE GRATHER THAN 1.7m " + counter2);
+	}
+
+}
